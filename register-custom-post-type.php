@@ -17,6 +17,7 @@ add_action( 'init', 'create_post_type_locations' );
 function create_post_type_locations() {
 	register_post_type( 'locations',
 		array( 
+			'menu_icon' => 'dashicons-location', /** list of icons: https://developer.wordpress.org/resource/dashicons/ **/
 			'labels' => array(
 				'name' => __( 'Locations' ),
 				'singular_name' => __( 'Location' ),
