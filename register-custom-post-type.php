@@ -1,38 +1,38 @@
 <?php
-add_action( 'init', 'create_book_tax' );
-function create_book_tax() {
+add_action( 'init', 'create_location_tax' );
+function create_location_tax() {
 	register_taxonomy(
-		'genre',
-		'book',
+		'city',
+		'location',
 		array(
-			'label' => __( 'Genre' ),
-			'rewrite' => array( 'slug' => 'genre' ),
+			'label' => __( 'City' ),
+			'rewrite' => array( 'slug' => 'city' ),
 			'hierarchical' => true,
 		)
 	);
 }
 
-/*** Custom Post Type Recipes ***/
-add_action( 'init', 'create_post_type_book' );
-function create_post_type_book() {
-	register_post_type( 'books',
+/*** Custom Post Type Locations ***/
+add_action( 'init', 'create_post_type_locations' );
+function create_post_type_locations() {
+	register_post_type( 'locations',
 		array( 
 			'labels' => array(
-				'name' => __( 'Books' ),
-				'singular_name' => __( 'Book' ),
-				'add_new_item' => __('Add New Book'),
-				'edit_item' => __('Edit Book'),
-				'new_item' => __('New Book'),
-				'all_items' => __('All Books'),
-				'view_item' => __('View Books'),
-				'search_items' => __('Search Books'),
-				'not_found' =>  __('No Books found'),
-				'not_found_in_trash' => __('No Books found in Trash')
+				'name' => __( 'Locations' ),
+				'singular_name' => __( 'Location' ),
+				'add_new_item' => __('Add New Location'),
+				'edit_item' => __('Edit Location'),
+				'new_item' => __('New Location'),
+				'all_items' => __('All Locations'),
+				'view_item' => __('View Locations'),
+				'search_items' => __('Search Locations'),
+				'not_found' =>  __('No Locations found'),
+				'not_found_in_trash' => __('No Locations found in Trash')
 			),
 			'public' => true,
 			'has_archive' => true,
 			'supports' => array( 'title','editor','thumbnail','comments','revisions', 'featured' ),
-			'taxonomies' => array('genre')
+			'taxonomies' => array('city')
 		)
 	);
 }//End CPT Registration
